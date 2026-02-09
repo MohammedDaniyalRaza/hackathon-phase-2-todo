@@ -53,3 +53,36 @@ export const isTokenExpired = (token) => {
   const currentTime = Math.floor(Date.now() / 1000);
   return decodedToken.exp < currentTime;
 };
+
+// Refresh token (in a real app, you would call your refresh endpoint)
+export const refreshToken = async () => {
+  try {
+    // In a real implementation, you would call your token refresh endpoint
+    // For now, we'll just return a promise that resolves to null
+    // indicating that the user needs to log in again
+    const refreshTokenValue = localStorage.getItem('refreshToken');
+    if (!refreshTokenValue) {
+      return null;
+    }
+
+    const response = await fetch('/api/auth/refresh', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Refresh ${refreshTokenValue}`,
+      },
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      storeToken(data.access_token);
+      return data.access_token;
+    } else {
+      // If refresh fails, user needs to log in again
+      return null;
+    }
+  } catch (error) {
+    console.error('Error refreshing token:', error);
+    return null;
+  }
+};

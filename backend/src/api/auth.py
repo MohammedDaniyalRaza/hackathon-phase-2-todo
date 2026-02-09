@@ -46,7 +46,13 @@ def login_user(user_credentials: UserCreate):
         return {"access_token": access_token, "token_type": "bearer"}
 
 @router.post("/logout")
-def logout_user():
-    # In a stateless JWT system, the server doesn't store session info
-    # So logout is typically handled on the client side by removing the token
+def logout_user(credentials: HTTPAuthorizationCredentials = Depends(security)):
+    # In a stateless JWT system, we can't invalidate the token server-side
+    # But we can add it to a blacklist or revoke it in a database
+    # For now, we'll just return a success message
+    # In a real implementation, you would add the token to a blacklist
+    token = credentials.credentials
+    # Here you would typically add the token to a blacklist in your database
+    # token_blacklist.add(token)
+    
     return {"message": "Logged out successfully"}

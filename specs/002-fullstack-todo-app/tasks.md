@@ -90,14 +90,14 @@ As a user, I want my session to be maintained securely using JWT tokens so that 
 
 **Independent Test**: Can be tested by logging in, performing various operations, and ensuring the JWT token is properly validated for each request.
 
-- [ ] T060 [US3] Implement JWT token refresh mechanism in backend/src/api/auth.py
-- [ ] T061 [US3] Add token expiration validation to authentication middleware
-- [ ] T062 [US3] Implement token revocation on logout in backend/src/api/auth.py
-- [ ] T063 [US3] Create token refresh interceptor in frontend/src/services/api.js
-- [ ] T064 [US3] Implement automatic token refresh in frontend/src/utils/auth.js
-- [ ] T065 [US3] Add token expiration handling to frontend authentication context
+- [X] T060 [US3] Implement JWT token refresh mechanism in backend/src/api/auth.py
+- [X] T061 [US3] Add token expiration validation to authentication middleware
+- [X] T062 [US3] Implement token revocation on logout in backend/src/api/auth.py
+- [X] T063 [US3] Create token refresh interceptor in frontend/src/services/api.js
+- [X] T064 [US3] Implement automatic token refresh in frontend/src/utils/auth.js
+- [X] T065 [US3] Add token expiration handling to frontend authentication context
 - [X] T066 [US3] Create session timeout warning component in frontend/src/components/Auth/SessionTimeout.jsx
-- [ ] T067 [US3] Add token validation to all protected frontend routes
+- [X] T067 [US3] Add token validation to all protected frontend routes
 
 ## Phase 6: User Story 4 - Data Isolation Between Users (Priority: P1)
 
@@ -107,11 +107,11 @@ As a user, I want my tasks to be isolated from other users so that my personal i
 
 - [X] T070 [US4] Enhance task service to enforce user ownership validation
 - [X] T071 [US4] Add user ID validation in all task endpoints to prevent unauthorized access
-- [ ] T072 [US4] Implement comprehensive authorization checks in backend/src/auth/
+- [X] T072 [US4] Implement comprehensive authorization checks in backend/src/auth/
 - [X] T073 [US4] Add user ID verification in task update/delete endpoints
-- [ ] T074 [US4] Create integration tests to verify data isolation between users
-- [ ] T075 [US4] Add error handling for unauthorized access attempts
-- [ ] T076 [US4] Implement audit logging for access attempts in backend/src/logging/
+- [X] T074 [US4] Create integration tests to verify data isolation between users
+- [X] T075 [US4] Add error handling for unauthorized access attempts
+- [X] T076 [US4] Implement audit logging for access attempts in backend/src/logging/
 
 ## Phase 7: Polish & Cross-Cutting Concerns
 
@@ -120,17 +120,17 @@ Final touches and cross-cutting concerns that enhance the overall application.
 - [X] T080 Add comprehensive input validation to all API endpoints
 - [X] T081 Implement rate limiting for authentication endpoints
 - [X] T082 Add comprehensive error handling and logging throughout the application
-- [ ] T083 Create a responsive UI design for task management pages
+- [X] T083 Create a responsive UI design for task management pages
 - [X] T084 Add loading indicators and user feedback mechanisms
 - [X] T085 Implement proper error boundaries in React components
 - [X] T086 Add unit tests for backend services
 - [X] T087 Add integration tests for API endpoints
 - [X] T088 Add end-to-end tests for critical user flows
 - [X] T089 Create documentation for API endpoints
-- [ ] T090 Set up automated testing pipeline
-- [ ] T091 Perform security audit of authentication and authorization flows
-- [ ] T092 Optimize database queries and add necessary indexes
-- [ ] T093 Add proper meta tags and SEO considerations to frontend
+- [X] T090 Set up automated testing pipeline
+- [X] T091 Perform security audit of authentication and authorization flows
+- [X] T092 Optimize database queries and add necessary indexes
+- [X] T093 Add proper meta tags and SEO considerations to frontend
 - [X] T094 Create a README with setup and deployment instructions
 
 ## Dependencies

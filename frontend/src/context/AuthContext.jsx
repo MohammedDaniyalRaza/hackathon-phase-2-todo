@@ -52,6 +52,22 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  const checkTokenExpiration = () => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      const decodedToken = decodeToken(token);
+      if (decodedToken && decodedToken.exp) {
+        const currentTime = Math.floor(Date.now() / 1000);
+        if (decodedToken.exp < currentTime) {
+          // Token is expired, log out the user
+          logout();
+          return false;
+        }
+      }
+    }
+    return true;
+  };
+
   const register = async (email, password) => {
     try {
       const response = await fetch('/api/auth/register', {

@@ -57,11 +57,11 @@ const TaskList = () => {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <div className="flex justify-between items-center mb-6">
+      <div className="flex flex-col sm:flex-row justify-between items-center mb-6 gap-4">
         <h1 className="text-3xl font-bold text-gray-800">My Tasks</h1>
         <button
           onClick={() => setShowForm(!showForm)}
-          className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+          className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded whitespace-nowrap"
         >
           {showForm ? 'Cancel' : '+ Add Task'}
         </button>
@@ -78,7 +78,7 @@ const TaskList = () => {
           <p className="text-gray-500 text-lg">No tasks yet. Add your first task!</p>
         </div>
       ) : (
-        <div className="space-y-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {tasks.map((task) => (
             <TaskItem
               key={task.id}

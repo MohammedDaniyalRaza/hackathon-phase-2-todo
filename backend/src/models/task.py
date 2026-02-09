@@ -4,15 +4,15 @@ from typing import Optional
 import uuid
 
 class TaskBase(SQLModel):
-    title: str = Field(min_length=1, max_length=255)
+    title: str = Field(min_length=1, max_length=255, index=True)
     description: Optional[str] = Field(default=None)
-    completed: bool = Field(default=False)
+    completed: bool = Field(default=False, index=True)
 
 class Task(TaskBase, table=True):
-    id: uuid.UUID = Field(default_factory=uuid.uuid4, primary_key=True)
-    created_at: datetime = Field(default=datetime.utcnow())
+    id: uuid.UUID = Field(default_factory=uuid.uuid4, primary_key=True, index=True)
+    created_at: datetime = Field(default=datetime.utcnow(), index=True)
     updated_at: datetime = Field(default=datetime.utcnow())
-    user_id: uuid.UUID = Field(foreign_key="user.id")
+    user_id: uuid.UUID = Field(foreign_key="user.id", index=True)
 
 class TaskCreate(TaskBase):
     pass
